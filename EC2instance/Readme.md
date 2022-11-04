@@ -45,7 +45,7 @@ You should now be logged into the EC2 linux instance!
 - Launch an Amazon Linux EC2 Instance and SSH into it like we did on above  
 
 
-## Install the Apache web server in EC2 instance then  create a golden image from it
+##  Install the Apache web server in EC2 instance then  create a golden image from it
 
 - Install the Apache web server
 
