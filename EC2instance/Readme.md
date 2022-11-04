@@ -1,20 +1,25 @@
-## Lab 1 : Install the Apache web server in EC2 instance and create a golden image from it
+## Lab 01 :Configure and Launch a simple Linux EC2 instance and  Install the Apache web server in EC2 instance then  create a golden image from it
 
-## Lab01 Configure and Launch a simple Linux EC2 instance
+## Configure and Launch a simple Linux EC2 instance
 
 - Login to AWS console 
 - From the top Navigation Bar/menu Click Services 
 - Select ec2 service
 - Click on Launch Instance
+- Choose Ec2 instance Name
 - Choose Amazon Linux AMI
 - Choose EC2 Instance Type of t2.micro
+- Create new key pair 
+    - choose key pair name 
+    - Keypair type as RSA
+    - Private key file format as .ppk .Create a Key Pair, download it
+- Network setting as default 
+- Firewall (security groups) as Create security group and enable Allow SSH traffic from, Allow HTTPS traffic from the internet,
+Allow HTTP traffic from the internet 
 - Configure Instance Details
   - There are many parameters  we can configure  but for this lab, we will leave them default. 
-- Click "Next:Add Storage , we leave it default
-- Click "Next: Add Tags" and Tag Instance
-- Configure Security Group, either create a new security group or select an existing one
 - Click Review and Launch Instance
-- Create a Key Pair, download it  , check the I Acknowledge box and Launch Instance.
+-  Launch Instance.
 
 Your instance will now launch. 
 
@@ -23,27 +28,24 @@ Your instance will now launch.
 - Copy the connection string.
 
 
-If your're on Windows, 
-- Download the ssh client for windows https://git-scm.com/downloads 
-- Then you can open the git bash terminal to use ssh tool for logging in to your EC2
-
-
 If you're on Linux/Mac ssh client is already there
 
 - Navigate to the folder with the key pair. Most of the time it's on the downloads folder. 
-- If on Linux , use this command to secure your key pair
-```console
-chmod 400 your-key-name.pem
-```
-- Paste the connection string in the command line and type yes when prompted. 
-
+## To login to server 
+- First down load putty  --> https://www.putty.org/
+- Take the public IP address 
+- Paster in Host name area
+- In putty connection --> SSH --> Auth --> browse and select .ppk file what we down while creating keypair 
+- User name : ec2-user
 
 You should now be logged into the EC2 linux instance!
 
 
 
-- Launch an Amazon Linux EC2 Instance and SSH into it like we did in Lab 1 
+- Launch an Amazon Linux EC2 Instance and SSH into it like we did on above  
 
+
+## Install the Apache web server in EC2 instance then  create a golden image from it
 
 - Install the Apache web server
 
@@ -98,7 +100,7 @@ Hello. This page is hosted on my AWS EC2 Linux Instance.
 -  To view the status of your AMI while it is being created, in the navigation pane, choose **AMIs**\. Initially, the status is `pending` but should change to `available` after a few minutes\.
 
   
--  Launch an instance from your new AMI. Follow Lab 1 and in the AMI page when choosing the AMI select My AMI and select the AMI you created. 
+-  Launch an instance from your new AMI. Follow starting steps  and in the AMI page when choosing the AMI select My AMI and select the AMI you created. 
 - Browse the IP address of the new instance. You should see the same message as before. 
 
 We just created a golden image that we can now use to launch more instances. A golden image is , in simple terms an image that you have customized to with liking with data/configuration of your choice. It's saved as a personal AMI from which you can launch instances.
