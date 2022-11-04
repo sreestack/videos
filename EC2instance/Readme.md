@@ -88,7 +88,7 @@ chmod -R 755 /var/www/html
 ```
 Hello. This page is hosted on my AWS EC2 Linux Instance.
 ```
-
+## Create Golden Image
 
 ------
 - Select your instance, and then choose **Actions**, **Image**, **Create Image**\.
